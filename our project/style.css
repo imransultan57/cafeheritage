@@ -1,0 +1,595 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: 0%;
+}
+html{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: #dedede;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+header{
+    position:relative;
+    width: 68%;
+    height: 84%;
+    background: white;
+    box-shadow: 0px 0px 50px -1px rgb(0,0,0,0.5); 
+    padding: 0px 30px;
+    display: flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    transition: 1s linear;
+    
+}
+header .logo{
+    position: absolute;
+    top: 0;
+    left:  10%;
+    width: 200px;
+    height: 250px;
+    background-color: #282828;
+    transition: 1s linear;
+}
+header .logo img{
+    width: 220px;
+    margin: 11px 0px 0px -11px;
+    filter: box-shadow(0px 0px 20px rgb(0,0,0,0.6));
+    
+}
+header .logo h1{
+    color: #fff;
+    text-align: center;
+    margin-top: 1px;
+    font-size: 25px;
+    font-weight:600 ;
+
+
+}
+header nav{
+    width: 100%;
+    height: 10%;
+    /* border: 1px solid #000; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav .menu{
+    font-size: 26px;
+    color: black;
+    
+}
+header nav .right_menu{
+    display: flex;
+    align-items: center;
+}
+header nav .right_menu ul{
+    display: flex;
+    list-style-type: none;
+}
+header nav .right_menu ul li{
+    padding: 3px 10px;
+}
+header nav .right_menu ul li a{
+    position: relative;
+    text-decoration:  none;
+    font-size: 11px;
+    font-weight: 600;
+    color: #000;
+    transition: 0.3s;
+}
+header nav .right_menu ul li a::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    /* background: #dc131d; */
+    border-radius: 50%;
+    bottom: -5px;
+    left: 45%;
+    opacity: 0;
+    transition: 0.3s;
+}
+header nav .right_menu ul li a:hover{
+    color: red;
+}
+header nav .right_menu ul li a:hover::before{
+    opacity: 1;
+}
+header nav .right_menu .user_cart{
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+header nav .right_menu .user_cart .user{
+    position: relative;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+header nav .right_menu .user_cart .user img{
+    width: 100%;
+}
+header nav .right_menu .user_cart .user::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #dc131d;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+
+}
+.bi-cart-dash-fill{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+header .left_menu{
+    width: 20px;
+    height: 90%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+header .left_menu a{
+    margin: 30px 0px;
+    padding: 0px 5px;
+    text-decoration: none;
+    font-size: 10px;
+    color: black;
+    font-weight: 600;
+    transition: 0.3s linear;
+    transform: rotate(-90deg);
+}
+header .left_menu a:hover{
+    color: #dc131d;
+}
+
+/* cart */
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    min-height: 100vh;
+    padding: 20px;
+    background:#dedede;
+    box-shadow: -2px 0 4px;
+    z-index: 1;
+    transition: 0.3s;
+}
+.cart.active{
+    right: 0;
+}
+.cart_title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.cart_box{
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.cart_box img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+.detail_box{
+    display: grid;
+    row-gap: 0.5rem;
+}
+.cart_product_title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.cart_price{
+    font-weight: 500;
+}
+.cart_quantity{
+    border: 1px;
+    outline-color: orangered;
+    width: 2.5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.cart_remove{
+    font-size: 24px;
+    color: orangered;
+}
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    border-top: 1px solid black;
+}
+.total_title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.total_price{
+    margin-left: 0.5rem;
+}
+.btn-buy{
+    display: flex;
+    margin: 1.5rem auto 0 auto;
+    padding: 12px 20px;
+    border: none;
+    background: orangered;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+.btn-buy:hover{
+    background: black;
+}
+#close_cart{
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+}
+
+
+header section{
+    width: 94%;
+    height: 90%;
+    /* border: 1px solid greenyellow; */
+}
+header section .content{
+    position: relative;
+    left: 370px;
+    margin-top: 10%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    transition: 1s linear;
+}
+header section .content h1{
+    font-size: 40px;
+    transition: 1s linear;
+}
+header section .content p{
+    font-size: 10px;
+    width: 290px;
+    transition: 1s linear;
+    word-break: break-all ;
+}
+header section .content .price_oder{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+header section .content .price_oder .price h2{
+    color: red;
+    font-size: 20px;
+    line-height: 18px;
+    
+}
+header section .content .price_oder .price p{
+    
+    font-size: 5.5px;
+    width: 50px;
+    
+}
+header section .content .price_oder a{
+    
+    padding: 4px 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+}
+header section .cards{
+    width: 90%;
+    height: 95px;
+    /* border: 1px solid black; */
+    position: relative;
+    top: 15%;
+    padding-left: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+}
+header section .cards::-webkit-scrollbar{
+    display: none;
+    
+}
+header section .cards .card{
+    position: relative;
+    min-width: 100px;
+    min-height: 80px;
+    border: 1px solid black;
+    margin-right: 10px;
+    
+    background: #282828;
+    border-radius: 50px 10px 10px 10px ;
+    scroll-behavior: smooth;
+    transition: 1s linear;
+}
+header section .cards .card:nth-last-child(1){
+   margin-right: 0px;
+}
+header section .cards .card .dis{
+   width:50px ;
+   position: relative;
+   top: 2px;
+   left: -5px;
+}
+header section .cards .card h4{
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   color: white;
+   font-size: 13px;
+   font-weight: 600;
+}
+header section .cards .card h5{
+   
+   color: white;
+   font-family: 500;
+   font-size: 9px;
+   font-weight: 600;
+   padding: 0px  10px;
+   margin-top: -8px;
+   display: block;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   
+}
+header section .cards .card p{
+   
+   color: rgb(203,203,203);
+   font-size: 6px;
+   font-weight: 500;
+   padding: 0px 10px;
+   
+   
+}
+header section .cards .card .rate_cart{
+   
+   width: 100%; 
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   
+   color: white;
+   
+   
+}
+header section .cards .card .rate_cart h6{
+   font-size: 9px;
+}
+header section .social{
+    position: relative;
+    width: 100%;
+    /* border: 1px solid black; */
+    top: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 1s linear;
+    
+}
+header section .social .btns{
+    margin-left: 30px;
+    
+}
+header section .social .btns .bi{
+    font-size: 13px;
+    cursor: pointer;
+    transition: 1s linear;
+    
+}
+header section .social .btns .bi:hover{
+    color: rgb(0,0,0,.5);
+    
+}
+header section .social .icons{
+    display: flex;
+    align-items: center;
+    
+}
+header section .social .icons a{
+    font-size: 13px;
+    /* padding: 3px; */
+    margin-left: 6px;
+    color: #282828;
+    transition: 0.3s linear;
+    
+}
+header section .social .icons a:hover{
+    color: #000;
+}
+@media screen and (max-width: 1100px) {
+    header{
+        width: 83%;
+    }
+    
+}
+@media screen and (max-width: 900px) {
+    header{
+        width: 97%;
+    }
+    
+}
+@media screen and (max-width: 745px) {
+    header section .content{
+        left:300px;
+    }
+    
+}
+/* @media screen and (max-width: 650px) {
+    header section .content{
+        left:250px;
+    }
+    
+} */
+@media screen and (max-width: 652px) {
+    header nav .right_menu ul {
+        position: absolute;
+        top: 20%;
+        flex-direction: column;
+        right: 10px;
+        
+    }
+    header nav .right_menu ul li{
+        transform: rotate(90deg);
+        padding: 16px;
+        
+    }
+    
+    header section .content {
+        left: 122px;
+        top: 28%;
+    }
+    header{
+        height: 100%;
+    }
+    header .logo {
+        
+        left: 34%;
+        
+    }
+    header section .cards {
+        height: 70px;
+        top: 30%;
+        width: 81%;
+        
+    }
+    header .logo {
+        height: 198px;
+        width: 176px;
+        
+    }
+    header .logo img {
+        width: 180px;
+        margin: 0px 0px 0px -2px;
+        filter: box-shadow(0px 0px 20px rgb(0,0,0,0.6));
+    }
+    header section .social {
+        
+        width: 92%;
+        
+        top: 32%;
+        
+    }
+    
+}
+@media screen and (max-width: 650px) {
+    header section .content{
+        left:113px;
+    }
+    
+}
+@media screen and (max-width: 530px) {
+    header section .content {
+        left: 51px;
+    }
+    header section {
+        width: 83%;
+       
+    }
+    header .logo {
+        
+        left: 146px;
+    }
+    
+}
+@media screen and (max-width: 450px) {
+    header section .content {
+        left: 51px;
+    }
+    header section {
+        width: 83%;
+       
+    }
+    header .logo {
+        
+        left: 146px;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    header section .content {
+        left: 21px;
+        top: 34%;
+    }
+    header section {
+        width: 83%;
+       
+    }
+    header .logo {
+        
+        left: 109px;
+    }
+    header section .social {
+       
+        top: 40%;
+    }
+    header section .cards {
+        height: 78px;
+        top: 38%;
+        
+    }
+    header section .content h1 {
+        font-size: 31px;
+        
+    }
+    header section .content p {
+        width: 200px;
+        
+    }
+    header section .content .price_oder .price p {
+        font-size: 8.5px;
+        width: 45px;
+    }
+    header section .content .price_oder .price h2 {
+       
+        font-size: 16px;
+    }
+    header section .content .price_oder a {
+        padding: 4px 7px;
+      
+        
+    }
+    header .logo {
+        left: 81px;
+    }
+}
